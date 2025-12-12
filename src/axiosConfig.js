@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: process.env.NODE_ENV === "production"
-    ? "http://localhost:8080"
-    : "http://localhost:8080",
+   baseURL: process.env.REACT_APP_API_URL || (process.env.NODE_ENV === "production"
+    ? "https://quantum-chat-backend.onrender.com"
+    : "http://localhost:8080"),
 });
 
 instance.interceptors.request.use((config) => {
