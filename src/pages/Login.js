@@ -72,12 +72,15 @@ const Login = () => {
   };
 
   // OAuth Handlers (Direct Links)
+   const API_URL = process.env.REACT_APP_API_URL || (process.env.NODE_ENV === "production"
+    ? "https://quantum-chat-backend.onrender.com"
+    : "http://localhost:8080");
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:8080/api/v1/auth/google";
+   window.location.href = `${API_URL}/api/v1/auth/google`;
   };
 
   const handleGithubLogin = () => {
-    window.location.href = "http://localhost:8080/api/v1/auth/github";
+     window.location.href = `${API_URL}/api/v1/auth/github`;
   };
 
   return (
