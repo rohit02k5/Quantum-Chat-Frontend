@@ -137,7 +137,12 @@ const KnowledgeBase = () => {
                         <motion.div whileHover={{ y: -5 }}>
                             <Card
                                 sx={{ borderRadius: "16px", overflow: "hidden", cursor: "pointer" }}
-                                onClick={() => window.open(`http://localhost:8080/uploads/${item.filename}`, "_blank")}
+                                onClick={() => {
+                                    const API_URL = process.env.REACT_APP_API_URL || (process.env.NODE_ENV === "production"
+                                        ? "https://quantum-chat-backend.onrender.com"
+                                        : "http://localhost:8080");
+                                    window.open(`${API_URL}/uploads/${item.filename}`, "_blank");
+                                }}
                             >
                                 <Box sx={{ height: 140, bgcolor: theme.palette.neutral?.light || "#e5e5e5", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                     {item.type === "image" ? <ImageIcon sx={{ fontSize: 60, opacity: 0.5 }} /> : <DescriptionIcon sx={{ fontSize: 60, opacity: 0.5 }} />}
