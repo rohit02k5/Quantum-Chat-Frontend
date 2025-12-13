@@ -32,7 +32,7 @@ const Login = () => {
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
-    if (token) {
+     if (token && token !== "undefined" && token !== "null") {
       localStorage.setItem("authToken", token); // Default to local for OAuth
       toast.success("Successfully logged in via Social!");
       navigate("/");
