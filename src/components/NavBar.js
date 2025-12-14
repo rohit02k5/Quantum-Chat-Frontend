@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import { Box, Typography, useTheme, IconButton } from "@mui/material";
-import { ColorModeContext } from "../context/ThemeContext";
+import { ColorModeContext, ThemeContext } from "../context/ThemeContext";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { NavLink, useLocation } from "react-router-dom";
-import axios from "axios";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import axios from "../axiosConfig";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const theme = useTheme();
