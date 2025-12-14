@@ -1,9 +1,13 @@
-import React from 'react';
-import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
-import { motion } from 'framer-motion';
+import React, { useContext } from "react";
+import { Box, Typography, useTheme, useMediaQuery, IconButton } from "@mui/material";
+import { motion } from "framer-motion";
+import { ColorModeContext } from "../context/ThemeContext";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
 const AuthLayout = ({ children, title, subtitle }) => {
     const theme = useTheme();
+    const colorMode = useContext(ColorModeContext);
     const isDesktop = useMediaQuery("(min-width:1000px)");
 
     return (
@@ -83,6 +87,17 @@ const AuthLayout = ({ children, title, subtitle }) => {
                     ? "radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%)"
                     : "#F3F4F6",
             }}>
+                {/* Theme Toggle Button */}
+                <Box sx={{ position: "absolute", top: 20, right: 20, zIndex: 20 }}>
+                    <IconButton onClick={colorMode.toggleColorMode}>
+                        {theme.palette.mode === "dark" ? (
+                            <DarkModeOutlinedIcon sx={{ fontSize: "25px", color: "white" }} />
+                        ) : (
+                            <LightModeOutlinedIcon sx={{ fontSize: "25px", color: "black" }} />
+                        )}
+                    </IconButton>
+                </Box>
+
                 <Box sx={{ width: "100%", maxWidth: 500, p: 4, zIndex: 10 }}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
