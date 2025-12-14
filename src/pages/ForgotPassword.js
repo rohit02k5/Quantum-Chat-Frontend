@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Box, TextField, Button, Alert, Collapse, InputAdornment } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Box, Typography, useTheme, TextField, Button, Alert, Collapse } from "@mui/material";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "../axiosConfig";
 import toast from "react-hot-toast";
 import AuthLayout from "../components/AuthLayout";
 import EmailIcon from "@mui/icons-material/Email";
