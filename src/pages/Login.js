@@ -46,7 +46,13 @@ const Login = () => {
 
     try {
       const response = await axios.post("/api/v1/auth/login", { email, password });
-      const authToken = response.data.token;
+            // CRITICAL FIX: Ensure token actually exists in response
+      // This prevents "Login Success" when server returns 200 OK HTML page (SPA issue)
+      const authToken = response.data?.token;
+
+      if (!authToken) {
+        throw new Error("Invalid response from server");
+      }
 
       if (rememberMe) {
         localStorage.setItem("authToken", authToken);
