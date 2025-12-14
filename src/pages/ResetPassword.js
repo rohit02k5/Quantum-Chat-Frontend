@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, Alert, Collapse, InputAdornment, IconButton } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../axiosConfig";
 import toast from "react-hot-toast";
 import AuthLayout from "../components/AuthLayout";
 import LockIcon from "@mui/icons-material/Lock";
