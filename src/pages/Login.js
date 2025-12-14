@@ -4,7 +4,7 @@ import {
   Collapse, FormControlLabel, Checkbox, InputAdornment, IconButton, Divider
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from "axios";
+import axios from "../axiosConfig";
 import toast from "react-hot-toast";
 import AuthLayout from '../components/AuthLayout';
 
